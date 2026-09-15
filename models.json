@@ -1,0 +1,18 @@
+{
+  "chat": {
+    "default": "qwen_chat",
+    "description": "General conversation, questions and assistance"
+  },
+  "coding": {
+    "default": "qwen_coder",
+    "description": "Programming, debugging and code generation"
+  },
+  "image": {
+    "default": "flux_klein",
+    "description": "Image generation and image creation"
+  },
+  "video": {
+    "default": "wan_video",
+    "description": "Video generation and image-to-video"
+  }
+}

@@ -1,31 +1,27 @@
-MODELS = {
-    "chat": {
-        "default": "qwen_chat"
-    },
-    "coding": {
-        "default": "qwen_coder"
-    },
-    "image": {
-        "default": "flux_klein"
-    },
-    "video": {
-        "default": "wan_video"
-    }
-}
+import json
+
+
+def load_models():
+    with open("models.json", "r", encoding="utf-8") as file:
+        return json.load(file)
 
 
 def route_task(task):
+    models = load_models()
+
     task = task.lower().strip()
 
-    if task in MODELS:
+    if task in models:
         return {
             "task": task,
-            "model": MODELS[task]["default"]
+            "model": models[task]["default"],
+            "description": models[task]["description"]
         }
 
     return {
         "task": "chat",
-        "model": MODELS["chat"]["default"]
+        "model": models["chat"]["default"],
+        "description": models["chat"]["description"]
     }
 
 
